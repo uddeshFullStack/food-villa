@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*normal native css
+scss
+inline css 
+component lib -material UI, base UI,ant, chakra
+styled components
+
+tailwind CSS FrameWork
+ * css on the go (in same file)
+ * reusability
+ * less bundle
+ * Flexible UI
+
+
+*/
+
+/* 
+.header{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    border: 1px solid black;
+}
+.nav-items>ul{
+    list-style: none;
+    display: flex;
+}
+.nav-items>ul>li{
+    padding: 10px;
+}
+.logo{
+    width: 75px;
+}
+.card{
+    width: 180px;
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px;
+}
+.card > img{
+    width: 100%;
+}
+
+.restaurant-list{
+    display: flex;
+    flex-wrap: wrap;
+}
+.search-btn{
+    margin-left: 10px;
+}
+.search-input{
+    margin-left: 10px;
+}
+.shimmer-restaurant{
+    width: 200px;
+    height: 500px;
+    background-color: rgb(194, 189, 189);
+    margin: 10px;
+}
+.search-btn{
+    background-color: red;
+    border-radius: 10px;
+    border:  none;
+} */
