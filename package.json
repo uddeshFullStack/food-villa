@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "practice",
   "scripts": {
-    "start": "parcel index1.html",
-    "build": "parcel build index1.html",
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
     "test": "jest"
   },
   "author": "uddesh",
