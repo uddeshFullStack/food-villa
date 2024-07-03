@@ -23,7 +23,7 @@ import InstamartDummy from "./src/components/Dummy";
 
 const About= lazy(()=>import("./src/components/About"))
 
-const Instamart= lazy(()=> import("./src/components/Instamart"))
+const Instamart= lazy(()=> import("./src/components/Kinstamart"))
 
 const AppLayout = () => {
   return (
