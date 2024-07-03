@@ -20,7 +20,7 @@ const Section = ({ title, description, isVisible, toggleVisibility }) => {
   );
 };
 
-const Instamart = () => {
+const InstamartDummy = () => {
   const [visibleSection, setVisibleSection] = useState("about");
 
   const sections = {
@@ -66,4 +66,4 @@ const Instamart = () => {
   );
 };
 
-export default Instamart;
+export default InstamartDummy;
