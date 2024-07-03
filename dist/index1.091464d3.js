@@ -3128,7 +3128,7 @@ $RefreshReg$(_c2, "AppLayout");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react-dom/client":"lOjBx","react-router-dom":"9xmpe","./src/components/Shimmer":"g6ZGj","./src/components/Footer":"8pPOA","./src/components/Header":"hsJbF","./src/components/Contact":"cgAOG","./src/components/Body":"8yaV8","./src/components/Error":"kvula","./src/components/RestaurantMenu":"8PuJ6","./src/components/Profile":"h0rtF","react":"21dqq","1a71adae55c7b5da":"hHoD7","dd08ee183218f1d9":"dLnAa","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./src/components/dummy":"3Ar8f"}],"iTorj":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react-dom/client":"lOjBx","react-router-dom":"9xmpe","./src/components/Shimmer":"g6ZGj","./src/components/Footer":"8pPOA","./src/components/Header":"hsJbF","./src/components/Contact":"cgAOG","./src/components/Body":"8yaV8","./src/components/Error":"kvula","./src/components/RestaurantMenu":"8PuJ6","./src/components/Profile":"h0rtF","react":"21dqq","./src/components/dummy":"3Ar8f","1a71adae55c7b5da":"hHoD7","dd08ee183218f1d9":"dLnAa","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"iTorj":[function(require,module,exports) {
 "use strict";
 module.exports = require("ee51401569654d91");
 
@@ -34284,7 +34284,7 @@ const Title = ()=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
 _c = Title;
 const Header = function() {
     _s();
-    [loggedInUser, setLoggedInUser] = (0, _react.useState)(false);
+    const [loggedInUser, setLoggedInUser] = (0, _react.useState)(false);
     const isOnline = (0, _onlineDefault.default)();
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "flex justify-between bg-pink-50 shadow-lg sm:bg-blue-50 md:bg-yellow-50",
@@ -34422,7 +34422,7 @@ const Header = function() {
         columnNumber: 10
     }, this);
 };
-_s(Header, "pcPN+lzsTxxygp3j3GyRl+6YMbQ=", false, function() {
+_s(Header, "EqiS2NqLquTCxGbw3d2wE8mUVsY=", false, function() {
     return [
         (0, _onlineDefault.default)
     ];
@@ -34867,116 +34867,7 @@ $RefreshReg$(_c, "Profile");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"hHoD7":[function(require,module,exports) {
-module.exports = require("5ef392aa5a9b2096")(require("a3b8c5bada6bac7f").getBundleURL("7pZNV") + "About.84db8bad.js" + "?" + Date.now()).catch((err)=>{
-    delete module.bundle.cache[module.id];
-    throw err;
-}).then(()=>module.bundle.root("9R1Eu"));
-
-},{"5ef392aa5a9b2096":"61B45","a3b8c5bada6bac7f":"lgJ39"}],"61B45":[function(require,module,exports) {
-"use strict";
-var cacheLoader = require("ca2a84f7fa4a3bb0");
-module.exports = cacheLoader(function(bundle) {
-    return new Promise(function(resolve, reject) {
-        // Don't insert the same script twice (e.g. if it was already in the HTML)
-        var existingScripts = document.getElementsByTagName("script");
-        if ([].concat(existingScripts).some(function isCurrentBundle(script) {
-            return script.src === bundle;
-        })) {
-            resolve();
-            return;
-        }
-        var preloadLink = document.createElement("link");
-        preloadLink.href = bundle;
-        preloadLink.rel = "preload";
-        preloadLink.as = "script";
-        document.head.appendChild(preloadLink);
-        var script = document.createElement("script");
-        script.async = true;
-        script.type = "text/javascript";
-        script.src = bundle;
-        script.onerror = function(e) {
-            var error = new TypeError("Failed to fetch dynamically imported module: ".concat(bundle, ". Error: ").concat(e.message));
-            script.onerror = script.onload = null;
-            script.remove();
-            reject(error);
-        };
-        script.onload = function() {
-            script.onerror = script.onload = null;
-            resolve();
-        };
-        document.getElementsByTagName("head")[0].appendChild(script);
-    });
-});
-
-},{"ca2a84f7fa4a3bb0":"j49pS"}],"j49pS":[function(require,module,exports) {
-"use strict";
-var cachedBundles = {};
-var cachedPreloads = {};
-var cachedPrefetches = {};
-function getCache(type) {
-    switch(type){
-        case "preload":
-            return cachedPreloads;
-        case "prefetch":
-            return cachedPrefetches;
-        default:
-            return cachedBundles;
-    }
-}
-module.exports = function(loader, type) {
-    return function(bundle) {
-        var cache = getCache(type);
-        if (cache[bundle]) return cache[bundle];
-        return cache[bundle] = loader.apply(null, arguments).catch(function(e) {
-            delete cache[bundle];
-            throw e;
-        });
-    };
-};
-
-},{}],"lgJ39":[function(require,module,exports) {
-"use strict";
-var bundleURL = {};
-function getBundleURLCached(id) {
-    var value = bundleURL[id];
-    if (!value) {
-        value = getBundleURL();
-        bundleURL[id] = value;
-    }
-    return value;
-}
-function getBundleURL() {
-    try {
-        throw new Error();
-    } catch (err) {
-        var matches = ("" + err.stack).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^)\n]+/g);
-        if (matches) // The first two stack frames will be this function and getBundleURLCached.
-        // Use the 3rd one, which will be a runtime in the original bundle.
-        return getBaseURL(matches[2]);
-    }
-    return "/";
-}
-function getBaseURL(url) {
-    return ("" + url).replace(/^((?:https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/.+)\/[^/]+$/, "$1") + "/";
-}
-// TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
-function getOrigin(url) {
-    var matches = ("" + url).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^/]+/);
-    if (!matches) throw new Error("Origin not found");
-    return matches[0];
-}
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-exports.getOrigin = getOrigin;
-
-},{}],"dLnAa":[function(require,module,exports) {
-module.exports = require("283963b18f6b0d68")(require("81372614422fbe7f").getBundleURL("7pZNV") + "instamart.6d16cb5e.js" + "?" + Date.now()).catch((err)=>{
-    delete module.bundle.cache[module.id];
-    throw err;
-}).then(()=>module.bundle.root("bvAZ2"));
-
-},{"283963b18f6b0d68":"61B45","81372614422fbe7f":"lgJ39"}],"3Ar8f":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"3Ar8f":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$65ee = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -35097,6 +34988,115 @@ $RefreshReg$(_c1, "Instamart");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}]},["c1pPi","1xC6H","dTuNL"], "dTuNL", "parcelRequirec643")
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"hHoD7":[function(require,module,exports) {
+module.exports = require("5ef392aa5a9b2096")(require("a3b8c5bada6bac7f").getBundleURL("7pZNV") + "About.84db8bad.js" + "?" + Date.now()).catch((err)=>{
+    delete module.bundle.cache[module.id];
+    throw err;
+}).then(()=>module.bundle.root("9R1Eu"));
+
+},{"5ef392aa5a9b2096":"61B45","a3b8c5bada6bac7f":"lgJ39"}],"61B45":[function(require,module,exports) {
+"use strict";
+var cacheLoader = require("ca2a84f7fa4a3bb0");
+module.exports = cacheLoader(function(bundle) {
+    return new Promise(function(resolve, reject) {
+        // Don't insert the same script twice (e.g. if it was already in the HTML)
+        var existingScripts = document.getElementsByTagName("script");
+        if ([].concat(existingScripts).some(function isCurrentBundle(script) {
+            return script.src === bundle;
+        })) {
+            resolve();
+            return;
+        }
+        var preloadLink = document.createElement("link");
+        preloadLink.href = bundle;
+        preloadLink.rel = "preload";
+        preloadLink.as = "script";
+        document.head.appendChild(preloadLink);
+        var script = document.createElement("script");
+        script.async = true;
+        script.type = "text/javascript";
+        script.src = bundle;
+        script.onerror = function(e) {
+            var error = new TypeError("Failed to fetch dynamically imported module: ".concat(bundle, ". Error: ").concat(e.message));
+            script.onerror = script.onload = null;
+            script.remove();
+            reject(error);
+        };
+        script.onload = function() {
+            script.onerror = script.onload = null;
+            resolve();
+        };
+        document.getElementsByTagName("head")[0].appendChild(script);
+    });
+});
+
+},{"ca2a84f7fa4a3bb0":"j49pS"}],"j49pS":[function(require,module,exports) {
+"use strict";
+var cachedBundles = {};
+var cachedPreloads = {};
+var cachedPrefetches = {};
+function getCache(type) {
+    switch(type){
+        case "preload":
+            return cachedPreloads;
+        case "prefetch":
+            return cachedPrefetches;
+        default:
+            return cachedBundles;
+    }
+}
+module.exports = function(loader, type) {
+    return function(bundle) {
+        var cache = getCache(type);
+        if (cache[bundle]) return cache[bundle];
+        return cache[bundle] = loader.apply(null, arguments).catch(function(e) {
+            delete cache[bundle];
+            throw e;
+        });
+    };
+};
+
+},{}],"lgJ39":[function(require,module,exports) {
+"use strict";
+var bundleURL = {};
+function getBundleURLCached(id) {
+    var value = bundleURL[id];
+    if (!value) {
+        value = getBundleURL();
+        bundleURL[id] = value;
+    }
+    return value;
+}
+function getBundleURL() {
+    try {
+        throw new Error();
+    } catch (err) {
+        var matches = ("" + err.stack).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^)\n]+/g);
+        if (matches) // The first two stack frames will be this function and getBundleURLCached.
+        // Use the 3rd one, which will be a runtime in the original bundle.
+        return getBaseURL(matches[2]);
+    }
+    return "/";
+}
+function getBaseURL(url) {
+    return ("" + url).replace(/^((?:https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/.+)\/[^/]+$/, "$1") + "/";
+}
+// TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
+function getOrigin(url) {
+    var matches = ("" + url).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^/]+/);
+    if (!matches) throw new Error("Origin not found");
+    return matches[0];
+}
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+exports.getOrigin = getOrigin;
+
+},{}],"dLnAa":[function(require,module,exports) {
+module.exports = require("283963b18f6b0d68")(require("81372614422fbe7f").getBundleURL("7pZNV") + "instamart.6d16cb5e.js" + "?" + Date.now()).catch((err)=>{
+    delete module.bundle.cache[module.id];
+    throw err;
+}).then(()=>module.bundle.root("bvAZ2"));
+
+},{"283963b18f6b0d68":"61B45","81372614422fbe7f":"lgJ39"}]},["c1pPi","1xC6H","dTuNL"], "dTuNL", "parcelRequirec643")
 
 //# sourceMappingURL=index1.091464d3.js.map

@@ -15,7 +15,7 @@ export const Title = () => (
   
   
 export const Header= function () {
-    [loggedInUser,setLoggedInUser]=useState(false)
+    const [loggedInUser,setLoggedInUser]=useState(false)
     const isOnline=useOnline()
     return (
       <div className="flex justify-between bg-pink-50 shadow-lg sm:bg-blue-50 md:bg-yellow-50">
