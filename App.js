@@ -18,7 +18,7 @@ import { RestaurantMenu } from "./src/components/RestaurantMenu";
 import  Profile from "./src/components/Profile";
 import { Suspense, lazy } from "react";
 
-import InstamartDummy from "./src/components/dummy";
+import InstamartDummy from "./src/components/Dummy";
 
 
 const About= lazy(()=>import("./src/components/About"))
