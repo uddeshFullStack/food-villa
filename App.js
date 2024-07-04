@@ -13,6 +13,8 @@ import { Suspense, lazy } from 'react';
 import UserContext from './src/utils/UserContext';
 const About = lazy(() => import('./src/components/About'));
 const Instamart = lazy(() => import('./src/components/Kinstamart'));
+import store from './src/utils/store';
+import { Provider } from 'react-redux';
 
 const AppLayout = () => {
   const [user, setUser] = useState({
@@ -21,13 +23,13 @@ const AppLayout = () => {
   });
 
   return (
-    <>
+    <Provider store={store}>
       <Header  />
       <UserContext.Provider value={{ user, setUser }}>
         <Outlet />
         <Footer />
       </UserContext.Provider>
-    </>
+    </Provider>
   );
 };
 
