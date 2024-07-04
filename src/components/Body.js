@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 
 import useOnline from "../utils/online";
 import UserContext from "../utils/UserContext";
+import { Link } from "react-router-dom";
 
 const RestaurantCard=({name,cuisines,cloudinaryImageId,avgRating})=>{
     const {user, setUser}=useContext(UserContext)
@@ -78,31 +79,16 @@ export const Body=()=>{
          setFilteredRestaurants(data)
         }}>
         Search</button>
-        <input type="text" 
-        className="border-solid border-2 pl-2" 
-        placeholder="name" 
-        value={user.name} 
-        onChange={(e) =>{
-        setUser({...user,
-          name:e.target.value})
-        }}
-        />
-        <input type="text" 
-        className="border-solid border-2 pl-2" 
-        placeholder="name" 
-        value={user.email} 
-        onChange={(e) =>{
-        setUser({
-          ...user,
-          email:e.target.value})
-        }}
-        />
       </div>
       
       <div className="flex flex-wrap">
         {
           filteredRestaurants.map(restaurant => {
-            return <RestaurantCard key={restaurant.info.id} {...restaurant.info} user={user}/>
+            return( 
+            <Link to={"/restaurant/"+restaurant.info.id}>
+              <RestaurantCard key={restaurant.info.id} {...restaurant.info} user={user}/>
+            </Link>
+            )
           })
         }
       </div>
