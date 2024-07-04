@@ -1,104 +1,79 @@
-
-import ReactDOM from "react-dom/client";
-import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
-import { Shimmer } from "./src/components/Shimmer";
-
-import { Footer } from "./src/components/Footer";
-
-import { Header } from "./src/components/Header";
-
-import { Contacts } from "./src/components/Contact";
-
-import { Body } from "./src/components/Body";
-
-import { Error } from "./src/components/Error";
-
-import { RestaurantMenu } from "./src/components/RestaurantMenu";
-
-import  Profile from "./src/components/Profile";
-import { Suspense, lazy } from "react";
-
-import InstamartDummy from "./src/components/Dummy";
-
-
-const About= lazy(()=>import("./src/components/About"))
-
-const Instamart= lazy(()=> import("./src/components/Kinstamart"))
+import React, { useState } from 'react';
+import ReactDOM from 'react-dom/client';
+import { Outlet, RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { Shimmer } from './src/components/Shimmer';
+import { Footer } from './src/components/Footer';
+import { Header } from './src/components/Header';
+import { Contacts } from './src/components/Contact';
+import { Body } from './src/components/Body';
+import { Error } from './src/components/Error';
+import { RestaurantMenu } from './src/components/RestaurantMenu';
+import Profile from './src/components/Profile';
+import { Suspense, lazy } from 'react';
+import UserContext from './src/utils/UserContext';
+const About = lazy(() => import('./src/components/About'));
+const Instamart = lazy(() => import('./src/components/Kinstamart'));
 
 const AppLayout = () => {
+  const [user, setUser] = useState({
+    name: 'app.js',
+    email: 'app.js@gmail.com',
+  });
+
   return (
-    //React.Fragment
-    <> 
-      <Header/>
-      <Outlet/>
-      <Footer/>
+    <>
+      <Header  />
+      <UserContext.Provider value={{ user, setUser }}>
+        <Outlet />
+        <Footer />
+      </UserContext.Provider>
     </>
   );
-}
-const appRouter =createBrowserRouter([
-  {
-    path:"/",
-    element :<AppLayout/>,
-    errorElement :<Error/>,
-    children:[
-      {
-        path:"/",
-        element:<Body user={
-          {
-            name:"namaste react",
-            email:""
-          }
-      }/>
+};
 
+const appRouter = createBrowserRouter([
+  {
+    path: '/',
+    element: <AppLayout />,
+    errorElement: <Error />,
+    children: [
+      {
+        path: '/',
+        element: <Body />,
       },
       {
-        path:"/about",
-        element:(
-        <Suspense fallback={<h1>loading.............................</h1>}>
-          <About/>
-        </Suspense>
+        path: '/about',
+        element: (
+          <Suspense fallback={<h1>Loading...</h1>}>
+            <About />
+          </Suspense>
         ),
         children: [
           {
-            path:"profile",
-            element:<Profile />
+            path: 'profile',
+            element: <Profile />,
           },
-        ]
+        ],
       },
       {
-        path:"/contacts",
-        element:<Contacts/>
+        path: '/contacts',
+        element: <Contacts />,
       },
       {
-        path:"/restaurantsMenu",
-        element:<RestaurantMenu/>
+        path: '/restaurantsMenu',
+        element: <RestaurantMenu />,
       },
       {
-        path:"/Instamart",
-        element:(
-          <Suspense fallback={<Shimmer/>}>
-            <Instamart/>
+        path: '/instamart',
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <Instamart />
           </Suspense>
-        )
+        ),
       },
-      {
-        path:"/dummy",
-        element:(
-          <Suspense fallback={<Shimmer/>}>
-            <InstamartDummy/>
-          </Suspense>
-        )
-      }
-    ]
-  }
+    ],
+  },
 ]);
 
-
-
-
-
-
-
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<RouterProvider router={appRouter}/>);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<RouterProvider router={appRouter} />);

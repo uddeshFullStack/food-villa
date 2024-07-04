@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import useOnline from "../utils/online";
+import UserContext from "../utils/UserContext";
 
 export const Title = () => (
     <a href="/">
@@ -17,6 +18,8 @@ export const Title = () => (
 export const Header= function () {
     const [loggedInUser,setLoggedInUser]=useState(false)
     const isOnline=useOnline()
+
+    const user=useContext(UserContext)
     return (
       <div className="flex justify-between bg-pink-50 shadow-lg sm:bg-blue-50 md:bg-yellow-50">
         <Title />
@@ -35,13 +38,14 @@ export const Header= function () {
             <Link to="/instamart">
               <li className="px-2">Instamart</li>
             </Link>
-            <Link to="/dummy">
-              <li className="px-2">Dummy</li>
-            </Link>
+            <Link to="/Cart">
             <li className="px-2">Cart</li>
+            </Link>
+            
           </ul>
         </div>
-        <h3>{isOnline?"✅":"❌"}</h3>
+        <h3>{isOnline?"✅" :"❌"}</h3>
+        <spna className="text-red-700">{user.name}</spna>
         {
           loggedInUser?
           <button onClick={()=>setLoggedInUser(false)}>login</button>

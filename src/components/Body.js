@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Shimmer } from "./Shimmer";
 
 import { useState, useEffect } from "react";
 
 import useOnline from "../utils/online";
+import UserContext from "../utils/UserContext";
 
-const RestaurantCard=({name,cuisines,cloudinaryImageId,avgRating,user})=>{
+const RestaurantCard=({name,cuisines,cloudinaryImageId,avgRating})=>{
+    const {user, setUser}=useContext(UserContext)
     return(
       <div className="w-[200px] p-2 m-2 shadow-md bg-pink-50">
         <img src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/"+cloudinaryImageId}></img>
@@ -13,6 +15,7 @@ const RestaurantCard=({name,cuisines,cloudinaryImageId,avgRating,user})=>{
         <h3>{cuisines.join(", ")}</h3>
         <h4 className="font-bold text-xl">{avgRating} stars</h4>
         <h4>{user.name}</h4>
+        <h4>{user.email}</h4>
       </div>
     );
   };
@@ -32,8 +35,9 @@ export function data1(){
 }  
   
   
-export const Body=({user})=>{
-    
+export const Body=()=>{
+
+    const {user,setUser}=useContext(UserContext)
     const [searchText,setSearchText]=useState("");
     const [allrestaurants,setALLRestaurants]=useState("");
     const [filteredRestaurants,setFilteredRestaurants]=useState("")
@@ -74,7 +78,27 @@ export const Body=({user})=>{
          setFilteredRestaurants(data)
         }}>
         Search</button>
+        <input type="text" 
+        className="border-solid border-2 pl-2" 
+        placeholder="name" 
+        value={user.name} 
+        onChange={(e) =>{
+        setUser({...user,
+          name:e.target.value})
+        }}
+        />
+        <input type="text" 
+        className="border-solid border-2 pl-2" 
+        placeholder="name" 
+        value={user.email} 
+        onChange={(e) =>{
+        setUser({
+          ...user,
+          email:e.target.value})
+        }}
+        />
       </div>
+      
       <div className="flex flex-wrap">
         {
           filteredRestaurants.map(restaurant => {
