@@ -1,410 +1,207 @@
 //Config Driven UI
-export const restaurantList=[
+export const restaurantMenuList=
+  {
+  "menus": 
+  [
     {
-      "info": {
-        "id": "602137",
-        "name": "Big Bowl",
-        "cloudinaryImageId": "c99751d54e4e1847186c62b3309c1327",
-        "locality": "Sector 7",
-        "areaName": "Rohini",
-        "costForTwo": "₹250 for two",
-        "cuisines": [
-          "Chinese",
-          "Tibetan",
-          "Desserts"
-        ],
-        "avgRating": 3.9,
-        "parentId": "434792",
-        "avgRatingString": "3.9",
-        "totalRatingsString": "100+",
-        "sla": {
-          "deliveryTime": 41,
-          "lastMileTravel": 2.8,
-          "serviceability": "SERVICEABLE",
-          "slaString": "40-45 mins",
-          "lastMileTravelString": "2.8 km",
-          "iconType": "ICON_TYPE_EMPTY"
-        },
-        "availability": {
-          "nextCloseTime": "2024-04-26 23:00:00",
-          "opened": true
-        },
-        "badges": {
-          
-        },
-        "isOpen": true,
-        "type": "F",
-        "badgesV2": {
-          "entityBadges": {
-            "imageBased": {
-              
-            },
-            "textBased": {
-              
-            },
-            "textExtendedBadges": {
-              
-            }
-          }
-        },
-        "aggregatedDiscountInfoV3": {
-          "header": "ITEMS",
-          "subHeader": "AT ₹169"
-        },
-        "differentiatedUi": {
-          "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-          "differentiatedUiMediaDetails": {
-            "mediaType": "ADS_MEDIA_ENUM_IMAGE",
-            "lottie": {
-              
-            },
-            "video": {
-              
-            }
-          }
-        },
-        "reviewsSummary": {
-          
-        },
-        "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-        "restaurantOfferPresentationInfo": {
-          
-        }
-      },
-      "analytics": {
-        
-      },
-      "cta": {
-        "link": "https://www.swiggy.com/restaurants/big-bowl-sector-7-rohini-delhi-602137",
-        "type": "WEBLINK"
-      }
-    },
-    {
-      "info": {
-        "id": "622616",
-        "name": "Domino's Pizza",
-        "cloudinaryImageId": "d0450ce1a6ba19ea60cd724471ed54a8",
-        "locality": "3rd Sector",
-        "areaName": "Rohini",
-        "costForTwo": "₹400 for two",
-        "cuisines": [
-          "Pizzas",
-          "Italian",
-          "Pastas",
-          "Desserts"
-        ],
-        "avgRating": 4.5,
-        "parentId": "2456",
-        "avgRatingString": "4.5",
-        "totalRatingsString": "500+",
-        "sla": {
-          "deliveryTime": 25,
-          "lastMileTravel": 0.6,
-          "serviceability": "SERVICEABLE",
-          "slaString": "25 mins",
-          "lastMileTravelString": "0.6 km",
-          "iconType": "ICON_TYPE_EMPTY"
-        },
-        "availability": {
-          "nextCloseTime": "2024-04-27 00:59:00",
-          "opened": true
-        },
-        "badges": {
-          "imageBadges": [
-            {
-              "imageId": "Rxawards/_CATEGORY-Pizza.png",
-              "description": "Delivery!"
-            }
-          ]
-        },
-        "isOpen": true,
-        "type": "F",
-        "badgesV2": {
-          "entityBadges": {
-            "imageBased": {
-              "badgeObject": [
-                {
-                  "attributes": {
-                    "description": "Delivery!",
-                    "imageId": "Rxawards/_CATEGORY-Pizza.png"
-                  }
-                }
-              ]
-            },
-            "textBased": {
-              
-            },
-            "textExtendedBadges": {
-              
-            }
-          }
-        },
-        "aggregatedDiscountInfoV3": {
-          "header": "₹150 OFF",
-          "subHeader": "ABOVE ₹299",
-          "discountTag": "FLAT DEAL"
-        },
-        "differentiatedUi": {
-          "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-          "differentiatedUiMediaDetails": {
-            "mediaType": "ADS_MEDIA_ENUM_IMAGE",
-            "lottie": {
-              
-            },
-            "video": {
-              
-            }
-          }
-        },
-        "reviewsSummary": {
-          
-        },
-        "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-        "restaurantOfferPresentationInfo": {
-          
-        }
-      },
-      "analytics": {
-        
-      },
-      "cta": {
-        "link": "https://www.swiggy.com/restaurants/dominos-pizza-3rd-sector-rohini-delhi-622616",
-        "type": "WEBLINK"
-      }
-    },
-    {
-      "info": {
-        "id": "390153",
-        "name": "NH1 Bowls - Highway To North",
-        "cloudinaryImageId": "RX_THUMBNAIL/IMAGES/VENDOR/2024/4/11/fced9e33-491c-482e-9f50-928bee8f6079_390153.jpg",
-        "locality": "Sector 7",
-        "areaName": "Prashant Vihar",
-        "costForTwo": "₹250 for two",
-        "cuisines": [
-          "North Indian",
-          "Punjabi",
-          "Home Food"
-        ],
-        "avgRating": 4.4,
-        "parentId": "22452",
-        "avgRatingString": "4.4",
-        "totalRatingsString": "500+",
-        "sla": {
-          "deliveryTime": 35,
-          "lastMileTravel": 2.8,
-          "serviceability": "SERVICEABLE",
-          "slaString": "30-40 mins",
-          "lastMileTravelString": "2.8 km",
-          "iconType": "ICON_TYPE_EMPTY"
-        },
-        "availability": {
-          "nextCloseTime": "2024-04-27 02:00:00",
-          "opened": true
-        },
-        "badges": {
-          "textExtendedBadges": [
-            {
-              "iconId": "guiltfree/GF_Logo_android_3x",
-              "shortDescription": "options available",
-              "fontColor": "#7E808C"
-            }
-          ]
-        },
-        "isOpen": true,
-        "type": "F",
-        "badgesV2": {
-          "entityBadges": {
-            "imageBased": {
-              
-            },
-            "textBased": {
-              
-            },
-            "textExtendedBadges": {
-              "badgeObject": [
-                {
-                  "attributes": {
-                    "description": "",
-                    "fontColor": "#7E808C",
-                    "iconId": "guiltfree/GF_Logo_android_3x",
-                    "shortDescription": "options available"
-                  }
-                }
-              ]
-            }
-          }
-        },
-        "aggregatedDiscountInfoV3": {
-          "header": "50% OFF",
-          "subHeader": "UPTO ₹90"
-        },
-        "differentiatedUi": {
-          "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-          "differentiatedUiMediaDetails": {
-            "mediaType": "ADS_MEDIA_ENUM_IMAGE",
-            "lottie": {
-              
-            },
-            "video": {
-              
-            }
-          }
-        },
-        "reviewsSummary": {
-          
-        },
-        "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-        "restaurantOfferPresentationInfo": {
-          
-        }
-      },
-      "analytics": {
-        
-      },
-      "cta": {
-        "link": "https://www.swiggy.com/restaurants/nh1-bowls-highway-to-north-sector-7-prashant-vihar-delhi-390153",
-        "type": "WEBLINK"
-      }
-    },
-    {
-      "info": {
-        "id": "258189",
-        "name": "Great Indian Khichdi by EatFit",
-        "cloudinaryImageId": "6e44fd7f1e5cd9967edfe47c10247671",
-        "locality": "Village Naharpur",
-        "areaName": "Pushpanjali",
-        "costForTwo": "₹200 for two",
-        "cuisines": [
-          "Home Food",
-          "Indian",
-          "North Indian",
-          "Healthy Food",
-          "Snacks",
-          "Desserts",
-          "Rajasthani",
-          "South Indian",
-          "Maharashtrian",
-          "Sweets"
-        ],
-        "avgRating": 4.4,
-        "veg": true,
-        "parentId": "319582",
-        "avgRatingString": "4.4",
-        "totalRatingsString": "1K+",
-        "sla": {
-          "deliveryTime": 24,
-          "lastMileTravel": 1.6,
-          "serviceability": "SERVICEABLE",
-          "slaString": "20-25 mins",
-          "lastMileTravelString": "1.6 km",
-          "iconType": "ICON_TYPE_EMPTY"
-        },
-        "availability": {
-          "nextCloseTime": "2024-04-27 01:00:00",
-          "opened": true
-        },
-        "badges": {
-          "imageBadges": [
-            {
-              "imageId": "v1695133679/badges/Pure_Veg111.png",
-              "description": "pureveg"
-            }
-          ],
-          "textExtendedBadges": [
-            {
-              "iconId": "guiltfree/GF_Logo_android_3x",
-              "shortDescription": "brand",
-              "fontColor": "#7E808C"
-            }
-          ]
-        },
-        "isOpen": true,
-        "type": "F",
-        "badgesV2": {
-          "entityBadges": {
-            "imageBased": {
-              "badgeObject": [
-                {
-                  "attributes": {
-                    "description": "pureveg",
-                    "imageId": "v1695133679/badges/Pure_Veg111.png"
-                  }
-                }
-              ]
-            },
-            "textBased": {
-              
-            },
-            "textExtendedBadges": {
-              "badgeObject": [
-                {
-                  "attributes": {
-                    "description": "",
-                    "fontColor": "#7E808C",
-                    "iconId": "guiltfree/GF_Logo_android_3x",
-                    "shortDescription": "brand"
-                  }
-                }
-              ]
-            }
-          }
-        },
-        "aggregatedDiscountInfoV3": {
-          "header": "60% OFF",
-          "subHeader": "UPTO ₹120"
-        },
-        "differentiatedUi": {
-          "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-          "differentiatedUiMediaDetails": {
-            "mediaType": "ADS_MEDIA_ENUM_IMAGE",
-            "lottie": {
-              
-            },
-            "video": {
-              
-            }
-          }
-        },
-        "reviewsSummary": {
-          
-        },
-        "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-        "restaurantOfferPresentationInfo": {
-          
-        }
-      },
-      "analytics": {
-        
-      },
-      "cta": {
-        "link": "https://www.swiggy.com/restaurants/great-indian-khichdi-by-eatfit-village-naharpur-pushpanjali-delhi-258189",
-        "type": "WEBLINK"
-      }
-    }
-  ]
-
-export  const config=[
-    {
-      type:"carousel",
-      cards:[
+      "category": "Starters",
+      "items": [
         {
-          offerName:"50% off"
+          "name": "Garlic Bread",
+          "description": "Toasted bread topped with garlic butter",
+          "price": 5.99
         },
         {
-          offerName:"free delivery"
+          "name": "Bruschetta",
+          "description": "Grilled bread topped with diced tomatoes, garlic, and basil",
+          "price": 7.99
+        },
+        {
+          "name": "Stuffed Mushrooms",
+          "description": "Mushrooms stuffed with cheese and herbs",
+          "price": 8.99
+        },
+        {
+          "name": "Chicken Wings",
+          "description": "Spicy chicken wings served with blue cheese dip",
+          "price": 9.99
+        },
+        {
+          "name": "Spring Rolls",
+          "description": "Crispy rolls filled with vegetables and served with sweet chili sauce",
+          "price": 6.99
         }
       ]
     },
     {
-      type:"resutaurants",
-      cards:[
+      "category": "Salads",
+      "items": [
         {
-          name:"Burger King",
-          image:"https://www.infinitimall.com/wp-content/uploads/2022/04/Burger-King-Infiniti-MAll-Malad.jpg",
-          cusines: ["Burger","American"],
-          rating:"4.2"
+          "name": "Caesar Salad",
+          "description": "Romaine lettuce with Caesar dressing, croutons, and Parmesan cheese",
+          "price": 8.99
+        },
+        {
+          "name": "Greek Salad",
+          "description": "Mixed greens with feta cheese, olives, tomatoes, and cucumbers",
+          "price": 9.99
+        },
+        {
+          "name": "Caprese Salad",
+          "description": "Fresh mozzarella, tomatoes, and basil drizzled with balsamic glaze",
+          "price": 10.99
+        },
+        {
+          "name": "Garden Salad",
+          "description": "Mixed greens with tomatoes, cucumbers, and carrots",
+          "price": 7.99
+        },
+        {
+          "name": "Quinoa Salad",
+          "description": "Quinoa with mixed greens, avocado, and a lemon vinaigrette",
+          "price": 11.99
+        }
+      ]
+    },
+    {
+      "category": "Main Courses",
+      "items": [
+        {
+          "name": "Grilled Salmon",
+          "description": "Fresh salmon fillet grilled to perfection, served with steamed vegetables",
+          "price": 17.99
+        },
+        {
+          "name": "Ribeye Steak",
+          "description": "Juicy ribeye steak cooked to your liking, served with mashed potatoes",
+          "price": 24.99
+        },
+        {
+          "name": "Chicken Alfredo",
+          "description": "Pasta with creamy Alfredo sauce and grilled chicken",
+          "price": 15.99
+        },
+        {
+          "name": "Vegetarian Lasagna",
+          "description": "Layers of pasta with vegetables, cheese, and marinara sauce",
+          "price": 14.99
+        },
+        {
+          "name": "Beef Tacos",
+          "description": "Soft tacos filled with seasoned beef, lettuce, and cheese",
+          "price": 12.99
+        },
+        {
+          "name": "Margherita Pizza",
+          "description": "Classic pizza with tomatoes, mozzarella, and basil",
+          "price": 13.99
+        },
+        {
+          "name": "BBQ Ribs",
+          "description": "Slow-cooked ribs with a tangy BBQ sauce, served with coleslaw",
+          "price": 19.99
+        },
+        {
+          "name": "Lamb Chops",
+          "description": "Grilled lamb chops with rosemary and garlic, served with roasted potatoes",
+          "price": 22.99
+        },
+        {
+          "name": "Shrimp Scampi",
+          "description": "Shrimp cooked in garlic butter sauce, served with pasta",
+          "price": 18.99
+        },
+        {
+          "name": "Veggie Burger",
+          "description": "Plant-based burger with lettuce, tomato, and avocado",
+          "price": 11.99
+        }
+      ]
+    },
+    {
+      "category": "Desserts",
+      "items": [
+        {
+          "name": "Cheesecake",
+          "description": "Creamy cheesecake with a graham cracker crust",
+          "price": 6.99
+        },
+        {
+          "name": "Chocolate Lava Cake",
+          "description": "Warm chocolate cake with a molten chocolate center",
+          "price": 7.99
+        },
+        {
+          "name": "Apple Pie",
+          "description": "Classic apple pie with a flaky crust",
+          "price": 5.99
+        },
+        {
+          "name": "Tiramisu",
+          "description": "Layered Italian dessert with mascarpone cheese and coffee-soaked ladyfingers",
+          "price": 8.99
+        },
+        {
+          "name": "Panna Cotta",
+          "description": "Creamy Italian dessert with a berry compote",
+          "price": 7.99
+        }
+      ]
+    },
+    {
+      "category": "Beverages",
+      "items": [
+        {
+          "name": "Coffee",
+          "description": "Freshly brewed coffee",
+          "price": 2.99
+        },
+        {
+          "name": "Orange Juice",
+          "description": "Freshly squeezed orange juice",
+          "price": 3.99
+        },
+        {
+          "name": "Lemonade",
+          "description": "Refreshing homemade lemonade",
+          "price": 3.49
+        },
+        {
+          "name": "Iced Tea",
+          "description": "Chilled tea served with lemon",
+          "price": 2.99
+        },
+        {
+          "name": "Red Wine",
+          "description": "Glass of house red wine",
+          "price": 6.99
+        },
+        {
+          "name": "White Wine",
+          "description": "Glass of house white wine",
+          "price": 6.99
+        },
+        {
+          "name": "Craft Beer",
+          "description": "Selection of local craft beers",
+          "price": 5.99
+        },
+        {
+          "name": "Mojito",
+          "description": "Classic cocktail with rum, mint, and lime",
+          "price": 7.99
+        },
+        {
+          "name": "Margarita",
+          "description": "Tequila-based cocktail with lime and salt rim",
+          "price": 7.99
+        },
+        {
+          "name": "Smoothie",
+          "description": "Blend of fresh fruits and yogurt",
+          "price": 4.99
         }
       ]
     }
   ]
-  
+}
