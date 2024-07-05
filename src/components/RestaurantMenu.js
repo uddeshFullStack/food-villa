@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Shimmer } from './Shimmer';
-import { restaurantMenuList } from '../../Contant';
+import { restaurantMenuList } from '../../contant';
 
 export const RestaurantMenu = () => {
   const resId  = useParams();
