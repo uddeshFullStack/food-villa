@@ -15,7 +15,6 @@ export const RestaurantMenu = () => {
   const fetchData = async () => {
     try {
       const response = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7040592&lng=77.10249019999999&collection=83667");
-      // const response = await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9351929&lng=77.62448069999999&restaurantId=55473");
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
@@ -39,7 +38,6 @@ export const RestaurantMenu = () => {
             <div className="w-[200px] p-2 m-2 shadow-md bg-pink-50">
               <h1 className='font-mono font-bold text-3xl'>{restaurant.info.name}</h1>
               <img src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/"+restaurant.info.cloudinaryImageId}></img>
-              <h2 className="font-bold text-2xl">{restaurant.info.name}</h2>
               <h3>{restaurant.info.cuisines.join(", ")}</h3>
               <h4 className="font-bold text-xl">{restaurant.info.avgRating} stars</h4>
             </div>
