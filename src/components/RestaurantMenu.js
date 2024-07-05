@@ -10,10 +10,10 @@ export const RestaurantMenu = () => {
   const [data, setData] = useState(null);
 
   const dispatch=useDispatch()
+  
 
-
-  const handleAddItems=()=>{
-    dispatch(addItem("grapes"))
+  const addFoodItems=(item)=>{
+    dispatch(addItem(item))
   }
 
   useEffect(() => {
@@ -55,11 +55,6 @@ export const RestaurantMenu = () => {
       </div>
       <div>
       <div className='font-mono font-bold text-3xl text-center  bg-pink-50'>Menus</div>
-      <div>
-        <button className='p-2 m-2 bg-green-300' onClick={()=>{
-          handleAddItems()
-        }}> Add items</button>
-      </div>
       <div className='flex flex-wrap justify-center'>
         {restaurantMenuList.menus.map(menu => (
           <div key={menu.category} className="p-2 m-2 shadow-md bg-pink-50">
@@ -70,13 +65,18 @@ export const RestaurantMenu = () => {
                 <h2 className="font-bold text-xl">{item.name}</h2>
                 <h3>{item.description}</h3>
                 <h4 className="font-bold text-xl">{item.price} $</h4>
-              </div>
+                <button className='p-2 m-2 bg-green-50' 
+                  onClick={()=>{addFoodItems(item)}}
+                >
+                Add</button>
+                </div>
             ))}
           </div>
         ))}
       </div>
       </div>
     </div>
+    
   );
 };
 

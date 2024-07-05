@@ -39,7 +39,7 @@ export const Header= function () {
             <Link to="/instamart">
               <li className="px-2">Instamart</li>
             </Link>
-            <Link to="/Cart">
+            <Link to="/cart">
             <li className="px-2">Cart-{cartItems.length} items</li>
             </Link>
             
