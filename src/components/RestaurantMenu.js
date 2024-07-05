@@ -2,10 +2,19 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Shimmer } from './Shimmer';
 import { restaurantMenuList } from '../../contant';
+import { addItem } from '../utils/cartSlice';
+import { useDispatch } from 'react-redux';
 
 export const RestaurantMenu = () => {
   const resId  = useParams();
   const [data, setData] = useState(null);
+
+  const dispatch=useDispatch()
+
+
+  const handleAddItems=()=>{
+    dispatch(addItem("grapes"))
+  }
 
   useEffect(() => {
     console.log('resId:', resId);
@@ -46,6 +55,11 @@ export const RestaurantMenu = () => {
       </div>
       <div>
       <div className='font-mono font-bold text-3xl text-center  bg-pink-50'>Menus</div>
+      <div>
+        <button className='p-2 m-2 bg-green-300' onClick={()=>{
+          handleAddItems()
+        }}> Add items</button>
+      </div>
       <div className='flex flex-wrap justify-center'>
         {restaurantMenuList.menus.map(menu => (
           <div key={menu.category} className="p-2 m-2 shadow-md bg-pink-50">
