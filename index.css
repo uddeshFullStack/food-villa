@@ -462,6 +462,11 @@
   .toast-item__close {
     @apply ml-1 shrink-0 border-0 bg-transparent text-lg leading-none opacity-60 transition hover:opacity-100;
   }
+
+  /* Login form */
+  .login-input {
+    @apply w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-900 outline-none transition placeholder:text-gray-400 focus:border-orange-400 focus:bg-white focus:ring-2 focus:ring-orange-100;
+  }
 }
 
 @keyframes shimmer-sweep {

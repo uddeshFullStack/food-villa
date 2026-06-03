@@ -4,6 +4,9 @@
   "description": "practice",
   "scripts": {
     "start": "parcel index.html",
+    "start:api": "cd /Users/uddeshkrbhagat/Documents/zestora-api && npm run dev",
+    "start:emulator": "firebase emulators:start --only auth",
+    "dev": "concurrently --names \"EMU,API,FE\" --prefix-colors \"yellow,cyan,magenta\" \"npm run start:emulator\" \"npm run start:api\" \"npm start\"",
     "build": "parcel build index.html",
     "clean": "rm -rf .parcel-cache dist",
     "fresh": "npm run clean && npm start",
@@ -17,6 +20,8 @@
     "@types/react-dom": "^18.2.0",
     "babel-plugin-transform-remove-console": "^6.9.4",
     "buffer": "^6.0.3",
+    "concurrently": "^10.0.3",
+    "firebase-tools": "^15.19.0",
     "http-proxy-middleware": "^4.0.0",
     "parcel": "^2.12.0",
     "postcss": "^8.4.38",

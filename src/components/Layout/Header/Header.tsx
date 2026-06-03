@@ -1,9 +1,12 @@
-import React, { useContext, useState } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useContext } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useOnline } from "../../../hooks/useOnline";
 import { ROUTES } from "../../../constants/routes";
 import type { RootState } from "../../../store";
+import UserContext from "../../../provider/UserContext";
+import { signOut } from "../../../services/auth/api";
+import { useToast } from "../../../utils/toastHelper";
 import { Title } from "./Title";
 
 const navLinks = [
@@ -20,11 +23,26 @@ function navLinkClass({ isActive }: { isActive: boolean }) {
 }
 
 export function Header() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const { user, setUser } = useContext(UserContext);
   const isOnline = useOnline();
+  const navigate = useNavigate();
+  const toast = useToast();
   const cartCount = useSelector(
     (store: RootState) => store.cart.items.length
   );
+
+  async function handleLogout() {
+    try {
+      await signOut();
+    } catch {
+      // If Firebase isn't configured, manually clear user
+    } finally {
+      setUser(null);
+      toast.info("You've been signed out.");
+      navigate(ROUTES.HOME);
+    }
+  }
+
   return (
     <header className="site-header">
       <div className="site-header__inner">
@@ -63,13 +81,33 @@ export function Header() {
             {isOnline ? "Online" : "Offline"}
           </div>
 
-          <button
-            type="button"
-            className={isLoggedIn ? "btn-secondary" : "search-btn"}
-            onClick={() => setIsLoggedIn((prev) => !prev)}
-          >
-            {isLoggedIn ? "Logout" : "Login"}
-          </button>
+          {user ? (
+            <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2">
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-orange-100 text-sm font-bold text-orange-600">
+                  {user.name.charAt(0).toUpperCase()}
+                </div>
+                <span className="hidden text-sm font-medium text-gray-700 sm:block">
+                  {user.name}
+                </span>
+              </div>
+              <button
+                type="button"
+                className="btn-secondary"
+                onClick={handleLogout}
+              >
+                Logout
+              </button>
+            </div>
+          ) : (
+            <button
+              type="button"
+              className="search-btn"
+              onClick={() => navigate(ROUTES.LOGIN)}
+            >
+              Login
+            </button>
+          )}
         </div>
       </div>
     </header>
