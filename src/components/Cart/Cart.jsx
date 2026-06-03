@@ -1,46 +1,74 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { clearCart, removeItem } from "../../store/cartSlice";
+import { ROUTES } from "../../constants/routes";
+import { useToast } from "../../utils/toastHelper";
+import { CartItem } from "./CartItem";
+import { CartSummary } from "./CartSummary";
 
 export function Cart() {
   const dispatch = useDispatch();
+  const toast = useToast();
   const items = useSelector((store) => store.cart.items);
 
-  return (
-    <section className="mx-auto max-w-5xl">
-      <h1 className="page-title mb-4">Cart Items</h1>
+  const subtotal = useMemo(
+    () => items.reduce((sum, item) => sum + Number(item.price || 0), 0),
+    [items]
+  );
 
-      <button
-        type="button"
-        className="search-btn mb-4"
-        onClick={() => dispatch(clearCart())}
-      >
-        Clear Cart
-      </button>
+  const handleClearCart = () => {
+    if (!items.length) return;
+    dispatch(clearCart());
+    toast.info("Cart cleared", "All items were removed.");
+  };
+
+  const handleRemoveItem = (index, itemName) => {
+    dispatch(removeItem(index));
+    toast.success("Item removed", itemName);
+  };
+
+  return (
+    <section className="page-shell cart-page">
+      <header className="cart-page__header">
+        <div>
+          <h1 className="cart-page__title">Your cart</h1>
+          <p className="cart-page__subtitle">
+            {items.length === 0
+              ? "No items added yet"
+              : `${items.length} item${items.length === 1 ? "" : "s"} in cart`}
+          </p>
+        </div>
+        {items.length > 0 ? (
+          <button
+            type="button"
+            className="cart-page__clear"
+            onClick={handleClearCart}
+          >
+            Clear cart
+          </button>
+        ) : null}
+      </header>
 
       {items.length === 0 ? (
-        <p className="rounded-lg bg-pink-50 p-6 text-center text-gray-600">
-          Your cart is empty.
-        </p>
+        <div className="cart-empty">
+          <p className="cart-empty__text">Your cart is empty.</p>
+          <Link to={ROUTES.HOME} className="search-btn inline-block">
+            Browse restaurants
+          </Link>
+        </div>
       ) : (
-        <div className="flex flex-wrap gap-3 rounded-lg bg-pink-50 p-4">
-          {items.map((item, index) => (
-            <div
-              key={`${item.name}-${index}`}
-              className="w-[180px] rounded-lg border border-pink-200 bg-white p-3 shadow-sm"
-            >
-              <h2 className="text-lg font-bold">{item.name}</h2>
-              <p className="text-sm text-gray-600">{item.description}</p>
-              <p className="mt-1 font-bold text-green-700">${item.price}</p>
-              <button
-                type="button"
-                className="search-btn mt-2"
-                onClick={() => dispatch(removeItem())}
-              >
-                Remove
-              </button>
-            </div>
-          ))}
+        <div className="cart-page__layout">
+          <div className="cart-page__items">
+            {items.map((item, index) => (
+              <CartItem
+                key={`${item.name}-${index}`}
+                item={item}
+                onRemove={() => handleRemoveItem(index, item.name)}
+              />
+            ))}
+          </div>
+          <CartSummary itemCount={items.length} subtotal={subtotal} />
         </div>
       )}
     </section>

@@ -11,19 +11,27 @@ export class ProfileClass extends React.Component {
 
   render() {
     return (
-      <>
-        <h1>profile class component</h1>
-        <h2>name: {this.props.name}</h2>
-        <h2>count: {this.state.count}</h2>
-        <h2>Count2: {this.state.count2}</h2>
+      <div className="profile-demo-card">
+        <span className="profile-demo-card__badge">Class component</span>
+        <h2 className="info-card__title">Name: {this.props.name}</h2>
+        <div className="flex flex-wrap gap-4 text-sm text-gray-700">
+          <p className="m-0">
+            Count: <strong>{this.state.count}</strong>
+          </p>
+          <p className="m-0">
+            Count2: <strong>{this.state.count2}</strong>
+          </p>
+        </div>
         <button
+          type="button"
+          className="search-btn"
           onClick={() => {
-            this.setState({ count: 2 });
+            this.setState({ count: this.state.count + 1 });
           }}
         >
-          SetCount
+          Increment count
         </button>
-      </>
+      </div>
     );
   }
 }

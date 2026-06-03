@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Provider } from "react-redux";
 import store from "../store";
 import UserContext from "./UserContext";
+import { QueryProvider } from "./QueryProvider/QueryProvider";
+import { ToastProvider } from "./ToastProvider/ToastProvider";
 
 export function AppProvider({ children }) {
   const [user, setUser] = useState({
@@ -11,9 +13,13 @@ export function AppProvider({ children }) {
 
   return (
     <Provider store={store}>
-      <UserContext.Provider value={{ user, setUser }}>
-        {children}
-      </UserContext.Provider>
+      <QueryProvider>
+        <ToastProvider>
+          <UserContext.Provider value={{ user, setUser }}>
+            {children}
+          </UserContext.Provider>
+        </ToastProvider>
+      </QueryProvider>
     </Provider>
   );
 }

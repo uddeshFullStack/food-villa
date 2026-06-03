@@ -2,28 +2,26 @@ import React from "react";
 
 export function Section({ title, description, isVisible, onToggle }) {
   return (
-    <div className="rounded-lg border border-gray-300 bg-white p-4 shadow-sm">
-      <h3 className="text-xl font-bold text-gray-800">{title}</h3>
-      {isVisible ? (
-        <>
-          <button
-            type="button"
-            onClick={onToggle}
-            className="mt-2 text-sm font-medium text-purple-700 underline"
-          >
-            Hide
-          </button>
-          <p className="mt-2 text-gray-700">{description}</p>
-        </>
-      ) : (
-        <button
-          type="button"
-          onClick={onToggle}
-          className="mt-2 text-sm font-medium text-purple-700 underline"
+    <div className="accordion-item">
+      <button
+        type="button"
+        className="accordion-item__header"
+        onClick={onToggle}
+        aria-expanded={isVisible}
+      >
+        <h3 className="accordion-item__title">{title}</h3>
+        <span
+          className={`accordion-item__chevron ${
+            isVisible ? "accordion-item__chevron--open" : ""
+          }`}
+          aria-hidden="true"
         >
-          Show
-        </button>
-      )}
+          ▾
+        </span>
+      </button>
+      {isVisible ? (
+        <div className="accordion-item__body">{description}</div>
+      ) : null}
     </div>
   );
 }

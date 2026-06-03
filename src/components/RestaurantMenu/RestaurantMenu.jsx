@@ -1,30 +1,50 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { restaurantMenuList } from "../../mock-data/menuList";
 import { useRestaurantById } from "../../services/restaurants";
 import { addItem } from "../../store/cartSlice";
 import { Shimmer } from "../Shimmer/Shimmer";
+import { SHIMMER_VARIANT } from "../Shimmer/config";
+import { useToast } from "../../utils/toastHelper";
 import { MenuItem } from "./MenuItem";
 import { RestaurantDetailCard } from "./RestaurantDetailCard";
 
 export function RestaurantMenu() {
   const { id } = useParams();
   const dispatch = useDispatch();
+  const toast = useToast();
   const { restaurant, isLoading } = useRestaurantById(id);
 
+  const handleAddItem = (menuItem) => {
+    dispatch(addItem(menuItem));
+    toast.success("Added to cart", menuItem.name);
+  };
+
+  useEffect(() => {
+    if (!isLoading && !restaurant) {
+      toast.error("Restaurant not found", "Try another restaurant from home.");
+    }
+  }, [isLoading, restaurant, toast]);
+
   if (isLoading || !restaurant) {
-    return <Shimmer />;
+    return <Shimmer variant={SHIMMER_VARIANT.MENU_PAGE} />;
   }
 
   return (
-    <div className="mx-auto flex max-w-7xl flex-col gap-8 lg:flex-row">
+    <section className="page-shell space-y-6">
+      <header className="page-header">
+        <h1 className="page-header__title">{restaurant.info.name}</h1>
+        <p className="page-header__subtitle">Menu · add items to your cart</p>
+      </header>
+
+      <div className="flex flex-col gap-8 lg:flex-row">
       <aside className="shrink-0">
         <RestaurantDetailCard info={restaurant.info} />
       </aside>
 
       <section className="flex-1">
-        <h1 className="page-title mb-6 text-left">Menu</h1>
+        <h2 className="m-0 mb-4 text-xl font-bold text-purple-800">Categories</h2>
         <div className="space-y-6">
           {restaurantMenuList.menus.map((menu) => (
             <div
@@ -34,12 +54,13 @@ export function RestaurantMenu() {
               <h2 className="mb-3 text-xl font-bold text-purple-800">
                 {menu.category}
               </h2>
-              <div className="flex flex-wrap">
+              <div className="menu-items-grid">
                 {menu.items.map((item) => (
                   <MenuItem
                     key={item.name}
                     item={item}
-                    onAdd={(menuItem) => dispatch(addItem(menuItem))}
+                    category={menu.category}
+                    onAdd={handleAddItem}
                   />
                 ))}
               </div>
@@ -47,6 +68,7 @@ export function RestaurantMenu() {
           ))}
         </div>
       </section>
-    </div>
+      </div>
+    </section>
   );
 }
