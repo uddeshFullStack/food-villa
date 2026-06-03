@@ -1,23 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
+import { getMenuItemImageUrl, imageForRestaurant } from "../../utils/restaurantImages";
 
-export function MenuItem({ item, onAdd }) {
+export function MenuItem({ item, category, onAdd }) {
+  const [imageSrc, setImageSrc] = useState(
+    item.imageUrl ?? getMenuItemImageUrl(item.name, category)
+  );
+
   return (
-    <div className="m-2 w-[180px] rounded-lg border border-gray-200 bg-white p-2 shadow-sm">
+    <article className="menu-item-card">
       <img
-        src="https://www.anifabiriyani.com/meta/biriyani-spl.webp"
-        className="h-[150px] w-full rounded-md object-cover"
+        src={imageSrc}
+        className="menu-item-card__image"
         alt={item.name}
+        loading="lazy"
+        onError={() => setImageSrc(imageForRestaurant(item.name))}
       />
-      <h2 className="mt-2 text-lg font-bold">{item.name}</h2>
-      <p className="text-sm text-gray-600">{item.description}</p>
-      <p className="mt-1 text-lg font-bold text-green-700">${item.price}</p>
-      <button
-        type="button"
-        className="search-btn mt-2 w-full"
-        onClick={() => onAdd(item)}
-      >
-        Add
-      </button>
-    </div>
+
+      <div className="menu-item-card__body">
+        <h2 className="menu-item-card__title">{item.name}</h2>
+        <p className="menu-item-card__description">{item.description}</p>
+
+        <div className="menu-item-card__footer">
+          <p className="menu-item-card__price">${item.price}</p>
+          <button
+            type="button"
+            className="search-btn w-full"
+            onClick={() => onAdd({ ...item, category, imageUrl: imageSrc })}
+          >
+            Add
+          </button>
+        </div>
+      </div>
+    </article>
   );
 }

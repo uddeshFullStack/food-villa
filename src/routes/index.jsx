@@ -3,7 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import { ROUTES } from "../constants/routes";
 import { AppLayout } from "../components/Layout/AppLayout/AppLayout";
 import { Error } from "../components/Error/Error";
-import { Shimmer } from "../components/Shimmer/Shimmer";
+import { PageLoader } from "../components/common/PageLoader";
 import { Home } from "../pages/Home";
 import { RestaurantMenuPage } from "../pages/RestaurantMenuPage";
 import { ContactPage } from "../pages/ContactPage";
@@ -27,7 +27,7 @@ export const appRouter = createBrowserRouter([
       {
         path: ROUTES.ABOUT,
         element: (
-          <Suspense fallback={<h1 className="page-title">Loading...</h1>}>
+          <Suspense fallback={<PageLoader label="Loading About..." />}>
             <AboutPage />
           </Suspense>
         ),
@@ -38,7 +38,7 @@ export const appRouter = createBrowserRouter([
       {
         path: ROUTES.INSTAMART,
         element: (
-          <Suspense fallback={<Shimmer />}>
+          <Suspense fallback={<PageLoader label="Loading Instamart..." />}>
             <InstamartPage />
           </Suspense>
         ),

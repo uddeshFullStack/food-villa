@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useOnline } from "../../../hooks/useOnline";
 import UserContext from "../../../provider/UserContext";
@@ -7,47 +7,66 @@ import { ROUTES } from "../../../constants/routes";
 import { Title } from "./Title";
 
 const navLinks = [
-  { label: "Home", to: ROUTES.HOME },
+  { label: "Home", to: ROUTES.HOME, end: true },
   { label: "About", to: ROUTES.ABOUT },
   { label: "Contacts", to: ROUTES.CONTACTS },
   { label: "Instamart", to: ROUTES.INSTAMART },
 ];
 
+function navLinkClass({ isActive }) {
+  return isActive ? "site-header__link site-header__link--active" : "site-header__link";
+}
+
 export function Header() {
-  const [loggedInUser, setLoggedInUser] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const isOnline = useOnline();
-  const cartItems = useSelector((store) => store.cart.items);
+  const cartCount = useSelector((store) => store.cart.items.length);
   const { user } = useContext(UserContext);
 
   return (
-    <header className="sticky top-0 z-10 border-b border-pink-100 bg-pink-50 shadow-md sm:bg-blue-50 md:bg-yellow-50">
-      <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-4 py-3 sm:px-6">
+    <header className="site-header">
+      <div className="site-header__inner">
         <Title />
 
-        <nav className="nav-items" aria-label="Main navigation">
-          <ul>
-            {navLinks.map(({ label, to }) => (
+        <nav className="site-header__nav" aria-label="Main navigation">
+          <ul className="site-header__nav-list">
+            {navLinks.map(({ label, to, end }) => (
               <li key={to}>
-                <Link to={to}>{label}</Link>
+                <NavLink to={to} end={end} className={navLinkClass}>
+                  {label}
+                </NavLink>
               </li>
             ))}
             <li>
-              <Link to={ROUTES.CART}>Cart ({cartItems.length})</Link>
+              <NavLink to={ROUTES.CART} className={navLinkClass}>
+                Cart
+                {cartCount > 0 ? (
+                  <span className="site-header__cart-badge">{cartCount}</span>
+                ) : null}
+              </NavLink>
             </li>
           </ul>
         </nav>
 
-        <div className="flex items-center gap-3 text-sm">
-          <span title={isOnline ? "Online" : "Offline"}>
-            {isOnline ? "✅" : "❌"}
-          </span>
-          <span className="font-medium text-red-700">{user.name}</span>
+        <div className="site-header__actions">
+          <div
+            className={`site-header__status ${isOnline ? "site-header__status--online" : "site-header__status--offline"}`}
+            title={isOnline ? "Online" : "Offline"}
+          >
+            <span className="site-header__status-dot" />
+            {isOnline ? "Online" : "Offline"}
+          </div>
+
+          <div className="site-header__user" title={user.email}>
+            <span className="site-header__user-name">{user.name}</span>
+          </div>
+
           <button
             type="button"
-            className="search-btn"
-            onClick={() => setLoggedInUser((prev) => !prev)}
+            className={isLoggedIn ? "btn-secondary" : "search-btn"}
+            onClick={() => setIsLoggedIn((prev) => !prev)}
           >
-            {loggedInUser ? "Login" : "Logout"}
+            {isLoggedIn ? "Logout" : "Login"}
           </button>
         </div>
       </div>

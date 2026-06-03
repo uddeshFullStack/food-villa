@@ -4,12 +4,24 @@ import { ROUTES } from "../../constants/routes";
 
 export function Error() {
   return (
-    <section className="mx-auto max-w-lg rounded-lg bg-red-50 p-8 text-center">
-      <h1 className="text-3xl font-bold text-red-700">Oops! Error</h1>
-      <p className="mt-2 text-gray-700">Something went wrong.</p>
-      <Link to={ROUTES.HOME} className="search-btn mt-6 inline-block">
-        Go Home
-      </Link>
+    <section className="page-shell flex justify-center py-12">
+      <div className="error-page">
+        <p className="error-page__code">404</p>
+        <h1 className="mt-2 text-2xl font-bold text-gray-900">
+          Something went wrong
+        </h1>
+        <p className="mt-2 text-gray-600">
+          The page could not be loaded or does not exist.
+        </p>
+        <div className="mt-6 flex flex-wrap justify-center gap-3">
+          <Link to={ROUTES.HOME} className="search-btn">
+            Go home
+          </Link>
+          <Link to={ROUTES.CONTACTS} className="btn-secondary">
+            Contact support
+          </Link>
+        </div>
+      </div>
     </section>
   );
 }
