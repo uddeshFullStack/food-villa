@@ -15,4 +15,7 @@ export {
   useRefetchRestaurants,
 } from "./restaurants";
 
+export { getRestaurantMenu } from "./menu/api";
+export { useGetRestaurantMenu } from "./menu";
+
 export { fetchJson, fetchFirstAvailable } from "./httpClient";

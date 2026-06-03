@@ -10,12 +10,7 @@ export function getRestaurantImageUrl(
   return info?.imageUrl ?? imageForRestaurant(info?.id ?? "0");
 }
 
-export function getMenuItemImageUrl(
-  itemName: string,
-  category = "menu"
-): string {
-  const seed = `${category}-${itemName}`
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-");
-  return `https://picsum.photos/seed/food-${seed}/400/300`;
+/** Fallback for when a menu item image fails to load */
+export function getMenuItemFallbackUrl(): string {
+  return "https://cdn.dummyjson.com/recipe-images/1.webp";
 }

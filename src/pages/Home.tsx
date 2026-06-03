@@ -37,8 +37,8 @@ export function Home() {
   return (
     <section className="page-shell">
       <header className="page-header text-center sm:text-left">
-        <h1 className="page-header__title">Top restaurants for you</h1>
-        <p className="page-header__subtitle">Discover places to eat and order from the menu.</p>
+        <h1 className="page-header__title">What are you craving today?</h1>
+        <p className="page-header__subtitle">Browse top restaurants and order your favourite meal.</p>
       </header>
       <RestaurantSearch
         searchText={searchText}

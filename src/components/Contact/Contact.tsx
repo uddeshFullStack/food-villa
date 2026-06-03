@@ -3,7 +3,7 @@ import React from "react";
 const contactDetails = [
   { icon: "📞", title: "Phone", value: "7059219618", hint: "Mon–Sun, 9 AM – 9 PM" },
   { icon: "✉️", title: "Email", value: "support@foodvilla.demo", hint: "We reply within 24 hours" },
-  { icon: "📍", title: "Office", value: "Kolkata, India", hint: "Demo address for Food Villa" },
+  { icon: "📍", title: "Office", value: "Kolkata, India", hint: "Zestora HQ" },
 ];
 
 export function Contact() {

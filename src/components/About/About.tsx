@@ -8,23 +8,23 @@ export function About() {
   return (
     <section className="page-shell space-y-6">
       <header className="page-header">
-        <h1 className="page-header__title">About Food Villa</h1>
+        <h1 className="page-header__title">About Zestora</h1>
         <p className="page-header__subtitle">
-          A demo food-ordering app built with React, Redux, and React Query.
+          Discover restaurants, explore menus, and order your favourites — built with React &amp; TypeScript.
         </p>
       </header>
 
       <div className="content-card">
         <p className="m-0 leading-relaxed text-gray-700">
-          Food Villa helps you browse restaurants, explore menus, add items to
-          your cart, and practice modern frontend patterns like routing, API
-          caching, and component-driven UI.
+          Zestora helps you discover restaurants near you, explore curated
+          menus, and add your favourite dishes to cart — built with React,
+          TypeScript, Redux, and React Query.
         </p>
         <Link
           to={`${ROUTES.ABOUT}/profile`}
           className="mt-4 inline-block text-sm font-semibold text-purple-700 hover:text-purple-900"
         >
-          View nested profile route →
+          Explore tech stack →
         </Link>
       </div>
 

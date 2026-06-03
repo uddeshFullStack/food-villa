@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import { restaurantMenuList } from "../../mock-data/menuList";
 import { useGetRestaurantById } from "../../services/restaurants";
+import { useGetRestaurantMenu } from "../../services/menu";
 import { addItem } from "../../store/cartSlice";
 import type { CartItem } from "../../store/cartSlice";
 import { Shimmer } from "../Shimmer/Shimmer";
@@ -15,7 +15,13 @@ export function RestaurantMenu() {
   const { id = "" } = useParams<{ id: string }>();
   const dispatch = useDispatch();
   const toast = useToast();
-  const { data: restaurant, isLoading } = useGetRestaurantById(id);
+
+  const { data: restaurant, isLoading: restaurantLoading } =
+    useGetRestaurantById(id);
+
+  const { data: menu = [], isLoading: menuLoading } = useGetRestaurantMenu();
+
+  const isLoading = restaurantLoading || menuLoading;
 
   const handleAddItem = (menuItem: CartItem) => {
     dispatch(addItem(menuItem));
@@ -23,10 +29,10 @@ export function RestaurantMenu() {
   };
 
   useEffect(() => {
-    if (!isLoading && !restaurant) {
+    if (!restaurantLoading && !restaurant) {
       toast.error("Restaurant not found", "Try another restaurant from home.");
     }
-  }, [isLoading, restaurant, toast]);
+  }, [restaurantLoading, restaurant, toast]);
 
   if (isLoading) {
     return <Shimmer variant={SHIMMER_VARIANT.MENU_PAGE} />;
@@ -47,7 +53,9 @@ export function RestaurantMenu() {
     <section className="page-shell space-y-6">
       <header className="page-header">
         <h1 className="page-header__title">{restaurant.info.name}</h1>
-        <p className="page-header__subtitle">Menu · add items to your cart</p>
+        <p className="page-header__subtitle">
+          {restaurant.info.cuisines.join(" · ")} · {restaurant.info.address}
+        </p>
       </header>
 
       <div className="flex flex-col gap-8 lg:flex-row">
@@ -56,22 +64,20 @@ export function RestaurantMenu() {
         </aside>
 
         <section className="flex-1">
-          <h2 className="m-0 mb-4 text-xl font-bold text-purple-800">Categories</h2>
           <div className="space-y-6">
-            {restaurantMenuList.menus.map((menu) => (
+            {menu.map((category) => (
               <div
-                key={menu.category}
+                key={category.apiCategory}
                 className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm"
               >
-                <h2 className="mb-3 text-xl font-bold text-purple-800">
-                  {menu.category}
+                <h2 className="mb-4 text-xl font-bold text-purple-800">
+                  {category.label}
                 </h2>
                 <div className="menu-items-grid">
-                  {menu.items.map((item) => (
+                  {category.items.map((item) => (
                     <MenuItem
-                      key={item.name}
+                      key={item.id}
                       item={item}
-                      category={menu.category}
                       onAdd={handleAddItem}
                     />
                   ))}

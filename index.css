@@ -37,6 +37,12 @@
     @apply h-14 w-14 rounded-xl object-cover shadow-sm ring-2 ring-purple-100 sm:h-16 sm:w-16;
   }
 
+  .site-header__logo-mark {
+    @apply flex h-12 w-12 shrink-0 items-center justify-center rounded-xl text-2xl font-black text-white shadow-md sm:h-14 sm:w-14;
+    background: linear-gradient(135deg, #7c3aed 0%, #a855f7 60%, #ec4899 100%);
+    letter-spacing: -0.05em;
+  }
+
   .site-header__brand-text {
     @apply hidden flex-col sm:flex;
   }

@@ -7,8 +7,8 @@ import { ToastProvider } from "./ToastProvider/ToastProvider";
 
 export function AppProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState({
-    name: "app.js",
-    email: "app.js@gmail.com",
+    name: "Uddesh",
+    email: "uddesh@foodvilla.app",
   });
 
   return (

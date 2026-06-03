@@ -1,6 +1,5 @@
-import React, { useContext } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
-import UserContext from "../../../provider/UserContext";
 import { ROUTES } from "../../../constants/routes";
 
 const footerLinks = [
@@ -18,7 +17,6 @@ function footerLinkClass({ isActive }: { isActive: boolean }) {
 }
 
 export function Footer() {
-  const { user } = useContext(UserContext);
   const year = new Date().getFullYear();
 
   return (
@@ -26,10 +24,9 @@ export function Footer() {
       <div className="site-footer__inner">
         <div className="site-footer__grid">
           <div className="site-footer__brand">
-            <p className="site-footer__brand-name">Food Villa</p>
+            <p className="site-footer__brand-name">Zestora</p>
             <p className="site-footer__brand-text">
-              Browse restaurants, explore menus, and build your cart — a React
-              learning project with modern UI patterns.
+              Discover restaurants, explore curated menus, and order your favourite meals — fast, fresh, and delivered with joy.
             </p>
           </div>
 
@@ -66,11 +63,11 @@ export function Footer() {
 
         <div className="site-footer__bottom">
           <p className="site-footer__copyright">
-            © {year} Food Villa. All rights reserved.
+            © {year} Zestora. All rights reserved.
           </p>
           <p className="site-footer__credit">
-            Developed by{" "}
-            <span className="font-semibold text-purple-800">{user.name}</span>
+            Built by{" "}
+            <span className="font-semibold text-purple-800">Uddesh</span>
           </p>
         </div>
       </div>
