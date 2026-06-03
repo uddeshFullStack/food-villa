@@ -2,57 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  body {
+    @apply m-0 min-h-screen bg-gray-50 text-gray-900 antialiased;
+  }
 
+  #root {
+    @apply min-h-screen;
+  }
+}
 
-/*normal native css
-scss
-inline css 
-component lib -material UI, base UI,ant, chakra
-styled components
+@layer components {
+  .app-shell {
+    @apply flex min-h-screen flex-col;
+  }
 
-tailwind CSS FrameWork
- * css on the go (in same file)
- * reusability
- * less bundle
- * Flexible UI
+  .app-main {
+    @apply flex-1 px-4 py-6 sm:px-8;
+  }
 
+  .nav-items ul {
+    @apply m-0 flex list-none items-center gap-1 p-0;
+  }
 
-*/
+  .nav-items a {
+    @apply block rounded-md px-3 py-2 text-sm font-medium text-gray-800 transition hover:bg-white/70 hover:text-purple-700;
+  }
 
-/* 
-.header{
-    display: flex;
-    justify-content: space-between;
-    margin: 10px;
-    border: 1px solid black;
+  .search-input {
+    @apply min-w-[220px] rounded-md border-2 border-gray-300 px-3 py-2 outline-none focus:border-purple-500;
+  }
+
+  .search-btn {
+    @apply rounded-md bg-purple-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-purple-700;
+  }
+
+  .restaurant-card {
+    @apply m-2 w-[200px] rounded-xl bg-white p-2 shadow-md transition hover:shadow-lg;
+  }
+
+  .page-title {
+    @apply font-mono text-3xl font-bold text-center text-gray-800;
+  }
 }
-.nav-items>ul{
-    list-style: none;
-    display: flex;
-}
-.nav-items>ul>li{
-    padding: 10px;
-}
-.logo{
-    width: 75px;
-}
-.card{
-    width: 180px;
-    border: 1px solid black;
-    padding: 10px;
-    margin: 10px;
-}
-.card > img{
-    width: 100%;
-}
-.search-btn{
-    margin-left: 10px;
-}
-.search-input{
-    margin-left: 10px;
-}
-.search-btn{
-    background-color: red;
-    border-radius: 10px;
-    border:  none;
-} */

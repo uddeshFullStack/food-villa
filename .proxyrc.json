@@ -1,0 +1,9 @@
+{
+  "/restaurant-api": {
+    "target": "https://fakerestaurantapi.runasp.net",
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/restaurant-api": ""
+    }
+  }
+}
