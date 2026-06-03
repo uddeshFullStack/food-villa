@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-import {
-  getMenuItemImageUrl,
-  imageForRestaurant,
-} from "../../utils/restaurantImages";
+import { getMenuItemFallbackUrl } from "../../utils/restaurantImages";
 import type { CartItem as CartItemType } from "../../store/cartSlice";
 
 interface CartItemProps {
@@ -12,7 +9,7 @@ interface CartItemProps {
 
 export function CartItem({ item, onRemove }: CartItemProps) {
   const [imageSrc, setImageSrc] = useState(
-    item.imageUrl ?? getMenuItemImageUrl(item.name, item.category)
+    item.imageUrl ?? getMenuItemFallbackUrl()
   );
 
   return (
@@ -22,14 +19,16 @@ export function CartItem({ item, onRemove }: CartItemProps) {
         alt={item.name}
         className="cart-item-card__image"
         loading="lazy"
-        onError={() => setImageSrc(imageForRestaurant(item.name))}
+        onError={() => setImageSrc(getMenuItemFallbackUrl())}
       />
       <div className="cart-item-card__body">
         {item.category ? (
           <p className="cart-item-card__category">{item.category}</p>
         ) : null}
         <h2 className="cart-item-card__title">{item.name}</h2>
-        <p className="cart-item-card__description">{item.description}</p>
+        {item.description ? (
+          <p className="cart-item-card__description">{item.description}</p>
+        ) : null}
       </div>
       <div className="cart-item-card__actions">
         <p className="cart-item-card__price">${item.price}</p>

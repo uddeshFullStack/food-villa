@@ -5,6 +5,8 @@
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html",
+    "clean": "rm -rf .parcel-cache dist",
+    "fresh": "npm run clean && npm start",
     "test": "jest"
   },
   "author": "uddesh",

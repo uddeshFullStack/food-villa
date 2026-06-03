@@ -2,7 +2,6 @@ import React, { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useOnline } from "../../../hooks/useOnline";
-import UserContext from "../../../provider/UserContext";
 import { ROUTES } from "../../../constants/routes";
 import type { RootState } from "../../../store";
 import { Title } from "./Title";
@@ -26,8 +25,6 @@ export function Header() {
   const cartCount = useSelector(
     (store: RootState) => store.cart.items.length
   );
-  const { user } = useContext(UserContext);
-
   return (
     <header className="site-header">
       <div className="site-header__inner">
@@ -64,10 +61,6 @@ export function Header() {
           >
             <span className="site-header__status-dot" />
             {isOnline ? "Online" : "Offline"}
-          </div>
-
-          <div className="site-header__user" title={user.email}>
-            <span className="site-header__user-name">{user.name}</span>
           </div>
 
           <button
