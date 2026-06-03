@@ -4,11 +4,13 @@ import { ROUTES } from "../constants/routes";
 import { AppLayout } from "../components/Layout/AppLayout/AppLayout";
 import { Error } from "../components/Error/Error";
 import { PageLoader } from "../components/common/PageLoader";
+import { ProtectedRoute } from "../components/common/ProtectedRoute";
 import { Home } from "../pages/Home";
 import { RestaurantMenuPage } from "../pages/RestaurantMenuPage";
 import { ContactPage } from "../pages/ContactPage";
 import { CartPage } from "../pages/CartPage";
 import { ProfilePage } from "../pages/ProfilePage";
+import { LoginPage } from "../pages/LoginPage";
 
 const AboutPage = lazy(() =>
   import("../pages/AboutPage").then((m) => ({ default: m.AboutPage }))
@@ -24,6 +26,7 @@ export const appRouter = createBrowserRouter([
     errorElement: <Error />,
     children: [
       { index: true, element: <Home /> },
+      { path: ROUTES.LOGIN, element: <LoginPage /> },
       {
         path: ROUTES.ABOUT,
         element: (
@@ -43,7 +46,14 @@ export const appRouter = createBrowserRouter([
           </Suspense>
         ),
       },
-      { path: ROUTES.CART, element: <CartPage /> },
+      {
+        path: ROUTES.CART,
+        element: (
+          <ProtectedRoute>
+            <CartPage />
+          </ProtectedRoute>
+        ),
+      },
     ],
   },
 ]);

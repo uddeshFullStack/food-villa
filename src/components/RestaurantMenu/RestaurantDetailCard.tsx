@@ -1,12 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
 import { MdOutlineStar } from "react-icons/md";
-import UserContext from "../../provider/UserContext";
 import { getRestaurantImageUrl } from "../../utils/restaurantImages";
 import type { RestaurantInfo } from "../../services/restaurants/types";
 
 export function RestaurantDetailCard({ info }: { info: RestaurantInfo }) {
-  const { user } = useContext(UserContext);
-
   return (
     <article className="restaurant-card">
       <div className="relative overflow-hidden rounded-xl">
@@ -27,8 +24,6 @@ export function RestaurantDetailCard({ info }: { info: RestaurantInfo }) {
         </span>
         <p className="text-base font-bold">{info.avgRating} stars</p>
       </div>
-      <p className="mt-2 text-xs text-gray-500">{user.name}</p>
-      <p className="text-xs text-gray-500">{user.email}</p>
     </article>
   );
 }

@@ -1,12 +1,17 @@
 import { createContext } from "react";
 
+export interface AuthUser {
+  name: string;
+  email: string;
+}
+
 export interface UserContextValue {
-  user: { name: string; email: string };
-  setUser: (user: { name: string; email: string }) => void;
+  user: AuthUser | null;
+  setUser: (user: AuthUser | null) => void;
 }
 
 const UserContext = createContext<UserContextValue>({
-  user: { name: "uddesh", email: "uddesh@gmail.com" },
+  user: null,
   setUser: () => {},
 });
 
